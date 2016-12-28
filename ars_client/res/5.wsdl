@@ -1,0 +1,67 @@
+ServiceSoapBindingSoapPort" binding="tns:AMCSaleServiceSoapBinding">
+            <soap:address location="http://amcalliance.allstate.com:80/AgentSale/AMCSaleServiceSoapBindingSoapPort"/>
+        </port>
+    </service>
+</definitions>ndIn">
+        <part name="parameters" element="amc-wsdl:AMCBindRequest"/>
+    </message>
+    <message name="RequestBindOut">
+        <part name="parameters" element="amc-wsdl:AMCBindResponse"/>
+    </message>
+    <message name="AMCBindBusinessError">
+        <part name="fault" element="amc-wsdl:AMCBindBusinessError"/>
+    </message>
+    <portType name="AMCSaleServiceSoapPortType">
+        <operation name="GetAgentQuote">
+            <input message="tns:RequestQuoteIn"/>
+            <output message="tns:RequestQuoteOut"/>
+            <fault name="AMCQuoteBusinessError" message="tns:AMCQuoteBusinessError"/>
+        </operation>
+        <operation name="GetOfferPaymentTools">
+            <input message="tns:RequestOfferPaymentToolsIn"/>
+            <output message="tns:RequestOfferPaymentToolsOut"/>
+        </operation>
+        <operation name="AgentBind">
+            <input message="tns:RequestBindIn"/>
+            <output message="tns:RequestBindOut"/>
+            <fault name="AMCBindBusinessError" message="tns:AMCBindBusinessError"/>
+        </operation>
+    </portType>
+    <binding name="AMCSaleServiceSoapBinding" type="tns:AMCSaleServiceSoapPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetAgentQuote">
+            <soap:operation style="document" soapAction="http://www.allstatemotorclub.com/wsdl/SaleService/GetAgentQuote"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="AMCQuoteBusinessError">
+                <soap:fault name="AMCQuoteBusinessError" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="GetOfferPaymentTools">
+            <soap:operation style="document" soapAction="http://www.allstatemotorclub.com/wsdl/SaleService/GetOfferPaymentTools"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="AgentBind">
+            <soap:operation style="document" soapAction="http://www.allstatemotorclub.com/wsdl/SaleService/AgentBind"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="AMCBindBusinessError"ody use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="WSException">
+        <soap:fault name="WSException" use

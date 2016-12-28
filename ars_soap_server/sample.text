@@ -1,0 +1,41 @@
+extends layout
+
+block content
+
+
+  div(class="col-lg-13")
+    div(class="input-group")
+      input.form-control(type='text', placeholder='Search for your web service')
+      span.input-group-btn
+        button.btn.btn-secondary(type='button') Go!
+
+  hr(class="hr")
+
+  table(class="table table-striped table-responsive")
+    tr
+      th Server
+      th Path
+      th Check service
+    for url in data
+      tr
+         td #{url.server}
+         td #{url.path}
+         td <input type="button" value="click me" class="btn-primary">
+
+
+
+
+
+         nav.navbar.navbar-inverse
+           .container-fluid
+             .navbar-header
+               a.navbar-brand(href='#') ARS ECC Web Services Monitoring
+               ul.nav.navbar-nav
+                 li.active
+                   a(href='#') Home
+                 li
+                   a(href='#') Page 1
+                 li
+                   a(href='#') Page 2
+                 li
+                   a(href='#') Page 3

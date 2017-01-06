@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var responseTime = require('response-time')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -23,9 +24,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css/')));
 app.use(express.static(path.join(__dirname, 'public/javascripts')));
+app.use(responseTime())
 
 app.use('/', index);
 app.use('/users', users);
+
+// app.post('/page', function (req, res) {
+//   console.log('here',req.body.data)
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

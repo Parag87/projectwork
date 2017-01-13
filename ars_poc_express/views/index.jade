@@ -2,35 +2,47 @@ extends layout
 
 block content
 
-  div(class="col-lg-13")
-    div(class="input-group")
-      input.form-control(type='text', placeholder='Search for your web service' id="FAQSearch"  name='FAQSearch')
-      span.input-group-btn
-        button.btn.btn-secondary(type='submit' id="SearchFAQ") Go!
+  .container
+    .row.row-search
+      .input-group.col-md-12
+        input.form-control(type='text', placeholder='Search for your web service' id="webServiceSearch"  name='webServiceSearch')
+        span.input-group-btn
+          button.btn.btn-primary(type='button')
+            span.glyphicon.glyphicon-search
 
-  hr(class="hr")
-  #FAQ
-      for url in data
-        h3.Topic #{url.type}
-        .TopicContents
-          table.table.table-striped.table-responsive.answer.results(border='1' id="table")
-            thead
-              tr
-                th Web Services
-              tr.warning.no-result
-                td
-                 |  No result
-            tbody
-                  for urls in url.services
-                     tr.clickable-row(data-href='#{url.type}$#{urls.title}$#{urls.server},#{urls.path}')
-                       td
-                          a(href='#') #{urls.title}
+  br
+
+  #webServiceContainer
+    .container
+      #accordion.panel-group
+        for url,key in data
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-toggle='collapse', data-parent='#accordion', href='##{url.type}')
+                  | #{url.type}
+             div(id='#{url.type}').panel-collapse.collapse
+              .panel-body
+                table.table.table-responsive.results(border='1' id="table")
+                  thead
+                    tr
+                      th Web Services
+                    tr.warning.no-result
+                      td
+                       |  No result
+                  tbody
+                      for urls in url.services
+                         tr.clickable-row(data-href='#{url.type}$#{urls.title}$#{urls.server},#{urls.path}')
+                           td
+                              a(href='#') #{urls.title}
 
 
-    #dataResult
-      button#histroy.btn.btn-primary(type='submit') Back
-      hr(class="hr")
-      table.table.table-striped.table-responsive(border='1' id="table")
+  #dataResult
+    button#back.btn.btn-primary.btn-cust(type='submit') Back
+    br
+    br
+    .row.col-md-12#col-centered
+      table.table.table-responsive(border='1' id="table")
         thead
           tr
             th Group
@@ -38,3 +50,5 @@ block content
             th Result
             th Duration
         tbody#resultSet
+
+  .modal

@@ -21,7 +21,7 @@ a {
   display:table-row;
 }
 
-#FAQ
+#webServiceContainer
 {
   width: auto;
 }
@@ -48,4 +48,113 @@ a {
 }
 #dataResult{
   display:none;
+}
+
+#ok-success
+{
+  width: 22px;
+  height: auto;
+}
+#ok-fail{
+  width: 17px;
+  height: auto;
+}
+.panel-heading [data-toggle="collapse"]:after
+{
+	font-family: 'Glyphicons Halflings';
+	content: "\e082";
+	float: left;
+	color: #b0c5d8;
+	font-size: 18px;
+	line-height: 22px;
+
+	-webkit-transform: rotate(-180deg);
+	-moz-transform:    rotate(-180deg);
+	-ms-transform:     rotate(-180deg);
+	-o-transform:      rotate(-180deg);
+	transform:         rotate(-180deg);
+  margin-right: 20px;
+}
+.panel-heading [data-toggle="collapse"].collapsed:after
+{
+  content: "\e081";
+	float: left;
+	color: #b0c5d8;
+	font-size: 18px;
+	line-height: 22px;
+  -webkit-transform: rotate(180deg);
+	-moz-transform:    rotate(180deg);
+	-ms-transform:     rotate(180deg);
+	-o-transform:      rotate(180deg);
+	transform:         rotate(180deg);
+  margin-right: 20px;
+}
+#custom-search-input {
+        margin:0;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:#D9230F;
+    }
+
+    .search-query:focus + button {
+        z-index: 3;
+    }
+    .row-search {
+      margin-right: 0px  !important;
+      margin-left: 0 !important;
+  }
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('../images/waiting.gif')
+                50% 50%
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;
+}
+body.loading .modal {
+    display: block;
+}
+#col-centered{
+    float: none;
+    margin: 0 auto
+  }
+.btn-cust{
+  margin-left: 15px;
 }
